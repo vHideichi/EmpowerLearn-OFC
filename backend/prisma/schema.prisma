@@ -156,13 +156,13 @@ model Submissao {
 
 model PostForum {
   id        Int      @id @default(autoincrement())
-  cursoId   Int      @map("curso_id")
+  cursoId   Int?     @map("curso_id")
   autorId   Int      @map("autor_id")
   titulo    String
   conteudo  String
   createdAt DateTime @default(now()) @map("created_at")
 
-  curso       Curso        @relation(fields: [cursoId], references: [id], onDelete: Cascade)
+  curso       Curso?       @relation(fields: [cursoId], references: [id], onDelete: SetNull)
   autor       Usuario      @relation("AutorPostForum", fields: [autorId], references: [id])
   comentarios Comentario[]
 

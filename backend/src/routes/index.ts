@@ -23,6 +23,8 @@ import { favoritoRoutes } from "./favorito.route";
 import { notaRoutes } from "./nota_aluno.route";
 import { refreshTokenRoutes } from "./refresh_token.route";
 import { authMiddleware } from "../middlewares/auth.middleware";
+import { usuarioRoutes } from "./usuario.route";
+import path from 'path';
 
 export const routes = (app: express.Express) => {
     app.use(express.json());
@@ -30,6 +32,9 @@ export const routes = (app: express.Express) => {
     app.use(authRoutes);
 
     app.use(authMiddleware);
+
+    app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+    app.use(usuarioRoutes);
 
     app.use(userRoutes);
     app.use(professorRoutes);

@@ -56,3 +56,8 @@ Thumbs.db
 
 # Prisma
 backend/prisma/migrations/dev.db*
+# Flutter generated files
+flutter/.dart_tool/
+flutter/build/
+flutter/.flutter-plugins
+flutter/.flutter-plugins-dependencies
